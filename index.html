@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KRIS'S DRIVING SCHOOL - WELCOME!!!</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    background-color: #000080;
+    background-image:
+      repeating-linear-gradient(45deg, #000090 0px, #000090 2px, transparent 2px, transparent 10px),
+      repeating-linear-gradient(-45deg, #000090 0px, #000090 2px, transparent 2px, transparent 10px);
+    color: #000;
+    min-height: 100vh;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='24' font-size='24'%3E🚗%3C/text%3E%3C/svg%3E"), auto;
+  }
+
+  .page-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  /* ===== HEADER ===== */
+  .header-table {
+    width: 100%;
+    background: linear-gradient(180deg, #ff0000, #ff6600, #ffff00, #00ff00, #0000ff, #ff00ff);
+    border: 5px ridge #silver;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .site-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffff00;
+    text-shadow: 3px 3px 0 #ff0000, 6px 6px 0 #000000;
+    font-family: Impact, Arial Black, sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .site-subtitle {
+    font-size: 18px;
+    color: #00ffff;
+    text-shadow: 2px 2px #0000ff;
+    font-weight: bold;
+    margin-top: 4px;
+  }
+
+  /* ===== MARQUEE ===== */
+  .marquee-box {
+    background: #000;
+    border: 3px inset #888;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 4px 0;
+    margin-bottom: 8px;
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+    color: #00ff00;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  @keyframes marquee {
+    0%   { transform: translateX(800px); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ===== BLINK ===== */
+  .blink {
+    animation: blink 0.7s step-start infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  /* ===== UNDER CONSTRUCTION ===== */
+  .construction-bar {
+    background: #ffff00;
+    border: 4px ridge #ff8800;
+    text-align: center;
+    padding: 6px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .hard-hat { font-size: 24px; animation: wobble 1s ease-in-out infinite alternate; }
+  @keyframes wobble { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+
+  /* ===== MAIN PANEL ===== */
+  .main-panel {
+    background: #c0c0c0;
+    border: 4px outset #ffffff;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .inner-panel {
+    background: #ffffff;
+    border: 3px inset #808080;
+    padding: 14px;
+  }
+
+  /* ===== SECTION HEADERS ===== */
+  .section-header {
+    background: linear-gradient(90deg, #000080, #0000ff, #000080);
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 12px;
+    text-align: center;
+    border: 2px outset #aaaaff;
+    margin: 12px 0 10px 0;
+    font-family: Impact, Arial Black, sans-serif;
+    letter-spacing: 1px;
+  }
+
+  /* ===== DIVIDERS ===== */
+  .divider-rainbow {
+    height: 6px;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    border: none;
+    margin: 10px 0;
+  }
+
+  .divider-stars {
+    text-align: center;
+    font-size: 18px;
+    color: #ff0000;
+    letter-spacing: 4px;
+    margin: 8px 0;
+  }
+
+  /* ===== STARBURST ===== */
+  .starburst-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .starburst {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background: #ff0000;
+    color: #ffff00;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    clip-path: polygon(
+      50% 0%, 61% 35%, 98% 35%, 68% 57%,
+      79% 91%, 50% 70%, 21% 91%, 32% 57%,
+      2% 35%, 39% 35%
+    );
+    padding: 20px 10px;
+    line-height: 1.2;
+    animation: spin-slow 6s linear infinite;
+  }
+
+  .starburst.yellow {
+    background: #ffff00;
+    color: #ff0000;
+    animation-direction: reverse;
+  }
+
+  .starburst.green {
+    background: #00aa00;
+    color: #ffffff;
+  }
+
+  @keyframes spin-slow {
+    0%   { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  /* ===== WELCOME TEXT ===== */
+  .welcome-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #000080;
+    text-align: center;
+  }
+
+  .welcome-text b { color: #ff0000; }
+
+  /* ===== FORM STYLES ===== */
+  .question-block {
+    background: #ffffcc;
+    border: 2px inset #888;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+
+  .question-label {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000080;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .question-num {
+    color: #ff0000;
+    font-size: 18px;
+    margin-right: 4px;
+  }
+
+  select, input[type="text"], input[type="range"], textarea {
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    font-size: 14px;
+    border: 2px inset #888;
+    background: #ffffff;
+    padding: 4px 6px;
+    width: 100%;
+  }
+
+  .radio-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .radio-group input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+    accent-color: #ff0000;
+  }
+
+  .confidence-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  input[type="range"] {
+    width: auto;
+    flex: 1;
+    accent-color: #ff0000;
+  }
+
+  #confidence-val {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff0000;
+    min-width: 30px;
+    text-align: center;
+  }
+
+  /* ===== SUBMIT BUTTON ===== */
+  .submit-area {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .submit-btn {
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(180deg, #ffff00 0%, #ff8800 50%, #ff0000 100%);
+    color: #000000;
+    border: 5px outset #ffffff;
+    padding: 12px 36px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 4px 4px 0 #000000;
+    transition: all 0.1s;
+  }
+
+  .submit-btn:hover {
+    background: linear-gradient(180deg, #ff0000 0%, #ff8800 50%, #ffff00 100%);
+    box-shadow: 2px 2px 0 #000000;
+    transform: translate(2px, 2px);
+  }
+
+  .submit-btn:active {
+    border-style: inset;
+    box-shadow: none;
+    transform: translate(4px, 4px);
+  }
+
+  /* ===== RESULTS BOX ===== */
+  #results-box {
+    display: none;
+    background: #000080;
+    border: 5px ridge #ffff00;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    animation: flash-border 1s step-start infinite;
+  }
+
+  @keyframes flash-border {
+    0%, 100% { border-color: #ffff00; }
+    50%       { border-color: #ff00ff; }
+  }
+
+  .result-grade {
+    font-size: 56px;
+    font-weight: bold;
+    font-family: Impact, Arial Black, sans-serif;
+    animation: rainbow-text 0.4s linear infinite;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  @keyframes rainbow-text {
+    0%   { color: #ff0000; }
+    16%  { color: #ff8800; }
+    33%  { color: #ffff00; }
+    50%  { color: #00ff00; }
+    66%  { color: #0088ff; }
+    83%  { color: #ff00ff; }
+    100% { color: #ff0000; }
+  }
+
+  .result-message {
+    font-size: 17px;
+    color: #ffffff;
+    line-height: 1.7;
+    margin: 10px 0;
+  }
+
+  .result-tip {
+    background: #ffff00;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px;
+    border: 2px solid #ff8800;
+    margin-top: 10px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-panel {
+    background: #c0c0c0;
+    border: 4px outset #ffffff;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .visitor-counter {
+    display: inline-block;
+    background: #000000;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border: 3px inset #444;
+    letter-spacing: 4px;
+    margin: 6px 0;
+  }
+
+  .email-link {
+    color: #0000ff;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: underline;
+  }
+
+  .best-viewed {
+    font-size: 11px;
+    color: #666;
+    margin-top: 6px;
+  }
+
+  /* ===== FLOATING CAR ANIMATION ===== */
+  .floating-car {
+    position: fixed;
+    font-size: 30px;
+    top: 50%;
+    animation: drive-across 12s linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @keyframes drive-across {
+    0%   { left: -80px; transform: scaleX(1); }
+    49%  { left: calc(100vw + 80px); transform: scaleX(1); }
+    50%  { left: calc(100vw + 80px); transform: scaleX(-1); }
+    99%  { left: -80px; transform: scaleX(-1); }
+    100% { left: -80px; transform: scaleX(1); }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 70px;
+  }
+
+  /* Stars twinkling in corner */
+  .corner-stars {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    animation: twinkle 1.2s ease-in-out infinite alternate;
+    z-index: 9998;
+    pointer-events: none;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.2; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1.2); }
+  }
+</style>
+</head>
+<body>
+
+<div class="corner-stars">⭐✨⭐✨⭐</div>
+<div class="floating-car" aria-hidden="true">🚗</div>
+
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <div class="header-table">
+    <div class="site-title">🚗 KRIS'S DRIVING SCHOOL 🚗</div>
+    <div class="site-subtitle">
+      ★ EST. 2026 ★ YOUR #1 CHOICE FOR LEARNING TO DRIVE!!! ★
+    </div>
+    <div style="color:#ffffff; font-size:13px; margin-top:6px; text-align:center;">
+      <span class="blink">★ NEW: WE NOW ACCEPT CHEQUES! ★</span>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-box">
+    <span class="marquee-inner">
+      &nbsp;&nbsp;&nbsp;🚦 WELCOME TO KRIS'S DRIVING SCHOOL!!! 🚦 &nbsp;&nbsp; WE TEACH YOU HOW TO DRIVE GOOD!!! &nbsp;&nbsp; 🏆 VOTED #1 DRIVING SCHOOL ON AOL IN 1996!! 🏆 &nbsp;&nbsp; CALL US AT 0403 720 218!!! &nbsp;&nbsp; SPECIAL OFFER: BUY 5 LESSONS GET 1 FREE!!! &nbsp;&nbsp; 🚘 DON'T DRIVE LIKE A MANIAC - LET KRIS SHOW YOU HOW! 🚘 &nbsp;&nbsp;&nbsp;
+    </span>
+  </div>
+
+  <!-- UNDER CONSTRUCTION -->
+  <div class="construction-bar">
+    <span class="hard-hat">🚧</span>
+    <span class="blink">!! THIS PAGE IS UNDER CONSTRUCTION !!</span>
+    <span class="hard-hat">🚧</span>
+  </div>
+
+  <!-- WELCOME PANEL -->
+  <div class="main-panel">
+    <div class="section-header">✦ WELCOME TO MY WEB SITE ✦</div>
+    <div class="inner-panel">
+
+      <div class="starburst-wrap">
+        <div class="starburst">100% SAFE DRIVING!!!</div>
+        <div class="starburst yellow">BEST IN TOWN!</div>
+        <div class="starburst green">FREE PARKING!</div>
+      </div>
+
+      <hr class="divider-rainbow">
+
+      <p class="welcome-text">
+        Hello and <b>WELCOME!!!</b> to Kris's Driving School!!!<br><br>
+        <b>WE ARE NOW ACCEPTING NEW CLIENTS!!!</b><br><br>
+        Before we can sign you up for lessons, please fill out the
+        <b><span class="blink" style="color:#ff0000;">OFFICIAL DRIVER ASSESSMENT QUESTIONNAIRE™</span></b>
+        below so I can figure out how bad of a driver you are.
+      </p>
+
+      <hr class="divider-rainbow">
+      <div class="divider-stars">★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
+
+    </div>
+  </div>
+
+  <!-- QUESTIONNAIRE -->
+  <div class="main-panel">
+    <div class="section-header">📋 OFFICIAL DRIVER ASSESSMENT QUESTIONNAIRE™ 📋</div>
+    <div class="inner-panel">
+
+      <p style="text-align:center; font-size:13px; color:#ff0000; font-weight:bold; margin-bottom:14px;">
+        ⚠️ PLEASE ANSWER ALL QUESTIONS HONESTLY. KRIS WILL KNOW IF YOU LIE. ⚠️
+      </p>
+
+      <form id="driving-form">
+
+        <!-- Q1 -->
+        <div class="question-block">
+          <label class="question-label">
+            <span class="question-num">1.</span> How long have you been driving?
+          </label>
+          <select id="q1" name="q1" required>
+            <option value="">-- Select an answer --</option>
+            <option value="never">I have never driven a car in my life</option>
+            <option value="learner">I have a learner's permit and crashed once (just a little)</option>
+            <option value="1year">Less than 1 year (but I watch a lot of Formula 1)</option>
+            <option value="5years">1–5 years and I think I'm pretty good</option>
+            <option value="expert">5+ years, I could drive with my eyes closed</option>
+          </select>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-block">
+          <label class="question-label">
+            <span class="question-num">2.</span> Can you parallel park?
+          </label>
+          <div class="radio-group">
+            <label><input type="radio" name="q4" value="yes"> Yes, perfectly, first try, every time</label>
+            <label><input type="radio" name="q4" value="sometimes"> Sometimes. With 12 attempts and a crowd watching.</label>
+            <label><input type="radio" name="q4" value="no"> No. I drive around for 45 minutes looking for a normal spot.</label>
+            <label><input type="radio" name="q4" value="what2"> What is parallel parking</label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-block">
+          <label class="question-label">
+            <span class="question-num">3.</span> What do you do when the traffic light turns yellow?
+          </label>
+          <div class="radio-group">
+            <label><input type="radio" name="q5" value="stop"> Slow down and stop safely. I am responsible.</label>
+            <label><input type="radio" name="q5" value="speed"> Floor it. Yellow means GO FASTER.</label>
+            <label><input type="radio" name="q5" value="panic"> Panic and do something random</label>
+            <label><input type="radio" name="q5" value="ignore"> Ignore it. Yellow lights don't apply to me.</label>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question-block">
+          <label class="question-label">
+            <span class="question-num">4.</span> Have you ever driven on the wrong side of the road?
+          </label>
+          <div class="radio-group">
+            <label><input type="radio" name="q6" value="never"> Never. That would be insane.</label>
+            <label><input type="radio" name="q6" value="once"> Once, by accident, just briefly, nobody saw</label>
+            <label><input type="radio" name="q6" value="abroad"> Only when I was abroad and got confused</label>
+            <label><input type="radio" name="q6" value="often"> More than I am comfortable admitting</label>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question-block">
+          <label class="question-label">
+            <span class="question-num">5.</span> Rate your driving confidence (1 = terrified, 10 = need for speed)
+          </label>
+          <div class="confidence-row">
+            <span style="font-size:13px;">😱 1</span>
+            <input type="range" id="q7" name="q7" min="1" max="10" value="5"
+              oninput="document.getElementById('confidence-val').textContent = this.value">
+            <span style="font-size:13px;">10 😎</span>
+            <span id="confidence-val">5</span>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-block">
+          <label class="question-label">
+            <span class="question-num">6.</span> Anything else Kris should know about your driving?
+          </label>
+          <textarea id="q8" name="q8" placeholder="Type here... (be honest, Kris has seen everything)"></textarea>
+        </div>
+
+        <hr class="divider-rainbow">
+
+        <div class="submit-area">
+          <p style="font-size:13px; color:#ff0000; font-weight:bold; margin-bottom:10px;">
+            ⚠️ WARNING: Results are OFFICIAL and will be filed in Kris's filing cabinet ⚠️
+          </p>
+          <button type="button" class="submit-btn" onclick="assessDriver()">
+            🚗 SUBMIT FOR KRIS'S ASSESSMENT!!! 🚗
+          </button>
+        </div>
+
+      </form>
+
+      <!-- RESULTS -->
+      <div id="results-box">
+        <span class="result-grade" id="result-grade">?</span>
+        <div class="result-message" id="result-message"></div>
+        <div class="result-tip" id="result-tip"></div>
+        <br>
+        <div id="email-btn-wrap" style="display:none; margin: 12px 0;">
+          <a id="email-btn" href="#" style="
+            display: inline-block;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 17px;
+            font-weight: bold;
+            background: linear-gradient(180deg, #00ff00, #008800);
+            color: #000000;
+            border: 4px outset #ffffff;
+            padding: 10px 24px;
+            text-decoration: none;
+            box-shadow: 3px 3px 0 #000;
+          ">📧 SEND RESULTS TO KRIS!!! 📧</a>
+        </div>
+        <p style="color:#ffff00; font-size:13px;" class="blink">
+          📞 CALL KRIS NOW: 0403 720 218 📞
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div style="text-align:center; font-size:22px; margin: 8px 0; color:#ffff00; letter-spacing:6px;">
+    🌟🚗🌟🚗🌟🚗🌟🚗🌟
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-panel">
+    <div style="font-size:15px; font-weight:bold; color:#000080; margin-bottom:6px;">
+      👁️ YOU ARE VISITOR NUMBER:
+    </div>
+    <div class="visitor-counter" id="visitor-counter">000000</div>
+    <br>
+    <div style="font-size:13px; margin: 6px 0;">
+      📧 Email Kris: <a class="email-link" href="mailto:kris@krisdrivingschool.net">kris@krisdrivingschool.net</a>
+    </div>
+    <div style="font-size:13px; margin: 4px 0;">
+      📞 Phone: 0403 720 218 &nbsp;|&nbsp; 📠 Fax: 0403 720 218 &nbsp;|&nbsp; 🏠 8 Balgonie Place Northcote
+    </div>
+    <hr class="divider-rainbow" style="margin: 8px 0;">
+    <div class="best-viewed">
+      🖥️ Best viewed in Netscape Navigator 3.0 at 800x600 resolution 🖥️<br>
+      © 1995–1999 Kris's Driving School. All rights reserved maybe.<br>
+      <span class="blink" style="color:#ff0000;">★ DO NOT STEAL MY HTML ★</span>
+    </div>
+    <br>
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='31'%3E%3Crect width='88' height='31' fill='%23ff6600'/%3E%3Ctext x='44' y='21' font-size='12' font-family='Arial' fill='white' text-anchor='middle' font-weight='bold'%3ENetscape Now!%3C/text%3E%3C/svg%3E"
+      alt="Netscape Now!" style="border:2px solid #000; margin-right:6px;">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='31'%3E%3Crect width='88' height='31' fill='%230000ff'/%3E%3Ctext x='44' y='21' font-size='11' font-family='Arial' fill='white' text-anchor='middle' font-weight='bold'%3EGet IE 4.0!%3C/text%3E%3C/svg%3E"
+      alt="Internet Explorer 4.0" style="border:2px solid #000;">
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<script>
+  // Fake visitor counter
+  (function() {
+    var base = 1337;
+    var extra = Math.floor(Math.random() * 9999);
+    var total = base + extra;
+    document.getElementById('visitor-counter').textContent =
+      String(total).padStart(6, '0');
+  })();
+
+  function assessDriver() {
+    var q1 = document.getElementById('q1').value;
+    var q4 = document.querySelector('input[name="q4"]:checked');
+    var q5 = document.querySelector('input[name="q5"]:checked');
+    var q6 = document.querySelector('input[name="q6"]:checked');
+    var q7 = parseInt(document.getElementById('q7').value);
+
+    if (!q1 || !q4 || !q5 || !q6) {
+      alert('⚠️ KRIS SAYS: Please answer ALL the questions!!!\n\nKris is watching you.');
+      return;
+    }
+
+    // Scoring system (higher = worse driver)
+    var badPoints = 0;
+
+    if (q1 === 'never') badPoints += 5;
+    else if (q1 === 'learner') badPoints += 3;
+    else if (q1 === '1year') badPoints += 2;
+    else if (q1 === 'expert') badPoints -= 1;
+
+    if (q4.value === 'what2') badPoints += 3;
+    else if (q4.value === 'no') badPoints += 2;
+    else if (q4.value === 'sometimes') badPoints += 1;
+
+    if (q5.value === 'speed') badPoints += 3;
+    else if (q5.value === 'panic') badPoints += 2;
+    else if (q5.value === 'ignore') badPoints += 4;
+
+    if (q6.value === 'often') badPoints += 5;
+    else if (q6.value === 'once') badPoints += 2;
+    else if (q6.value === 'abroad') badPoints += 1;
+
+    if (q7 >= 9) badPoints += 2; // overconfident!
+    else if (q7 <= 2) badPoints += 1;
+
+    var grade, message, tip;
+
+    if (badPoints <= 1) {
+      grade = '⭐ A+ ⭐';
+      message = 'WOW!!! Kris is VERY IMPRESSED with you!!!\n\nYou are basically already a professional driver! Kris does not know why you are even here. You are making Kris feel a little insecure about his own driving if we are being honest.';
+      tip = '💡 KRIS\'S TIP: You might not even need lessons! But sign up anyway because Kris has bills to pay.';
+    } else if (badPoints <= 4) {
+      grade = '👍 B+';
+      message = 'Not bad!!! You are a pretty solid driver according to Kris\'s Official Scientific Assessment System™.\n\nA few lessons and you will be PERFECT. Kris gives you a gold star (metaphorically, gold stars are expensive).';
+      tip = '💡 KRIS\'S TIP: Just work on the parallel parking. Everyone needs to work on the parallel parking.';
+    } else if (badPoints <= 8) {
+      grade = '😬 C';
+      message = 'Hmmmm. Kris has some CONCERNS.\n\nYou are not a TERRIBLE driver but you are definitely not a GOOD driver. You are somewhere in the worrying middle zone. Kris has seen this before. It does not end well without proper training.';
+      tip = '💡 KRIS\'S TIP: Please sign up for the FULL 12-lesson package. Kris is not joking around here.';
+    } else if (badPoints <= 12) {
+      grade = '😰 D';
+      message = 'Oh dear. OH DEAR.\n\nKris is going to be straight with you: other drivers are not safe while you are on the road. The GOOD news is that Kris has helped worse drivers than you (barely). The BETTER news is that Kris has plenty of availability.';
+      tip = '💡 KRIS\'S TIP: Do NOT drive anywhere until you have completed at least 6 lessons with Kris. This is not a suggestion. Kris cares about the community.';
+    } else {
+      grade = '🚨 F 🚨';
+      message = 'KRIS IS ALARMED.\n\nKris has been running this driving school since 1995 and has NEVER seen a score quite like this. You are a danger to yourself, other drivers, cyclists, pedestrians, lamp posts, and probably also stationary objects.\n\nHowever!! Kris does not give up on ANYONE. That is Kris\'s promise to you.';
+      tip = '💡 KRIS\'S TIP: CALL KRIS IMMEDIATELY. Drop everything. Do not drive to call. Walk. Or take the bus. Actually maybe not the bus either. Just call from where you are right now.';
+    }
+
+    var box = document.getElementById('results-box');
+    document.getElementById('result-grade').textContent = grade;
+    document.getElementById('result-message').innerHTML = message.replace(/\n/g, '<br>');
+    document.getElementById('result-tip').textContent = tip;
+    box.style.display = 'block';
+
+    // Build mailto link with all answers
+    var q1Labels = {
+      'never': 'Never driven',
+      'learner': "Learner's permit (crashed once, just a little)",
+      '1year': 'Less than 1 year',
+      '5years': '1-5 years',
+      'expert': '5+ years'
+    };
+    var q4Labels = {
+      'yes': 'Yes, perfectly, first try every time',
+      'sometimes': 'Sometimes, with many attempts',
+      'no': 'No, avoids it entirely',
+      'what2': 'Does not know what parallel parking is'
+    };
+    var q5Labels = {
+      'stop': 'Slows down and stops safely',
+      'speed': 'Floors it (yellow = go faster)',
+      'panic': 'Panics and does something random',
+      'ignore': 'Ignores it'
+    };
+    var q6Labels = {
+      'never': 'Never',
+      'once': 'Once, briefly, nobody saw',
+      'abroad': 'Only when abroad',
+      'often': 'More than comfortable admitting'
+    };
+
+    var body =
+      'NEW DRIVER ASSESSMENT SUBMISSION\n' +
+      '==================================\n\n' +
+      'Q1 - How long driving: ' + (q1Labels[q1] || q1) + '\n' +
+      'Q2 - Parallel parking: ' + (q4Labels[q4.value] || q4.value) + '\n' +
+      'Q3 - Yellow light: ' + (q5Labels[q5.value] || q5.value) + '\n' +
+      'Q4 - Wrong side of road: ' + (q6Labels[q6.value] || q6.value) + '\n' +
+      'Q5 - Confidence rating: ' + q7 + '/10\n' +
+      'Q6 - Additional comments: ' + (document.getElementById('q8').value || '(none)') + '\n\n' +
+      'KRIS\'S ASSESSMENT RESULT: ' + grade.replace(/[^\w\s+]/g, '').trim() + '\n';
+
+    var subject = 'New Driver Assessment - Kris\'s Driving School';
+    var mailtoLink = 'mailto:kris.engelhardt4@gmail.com' +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+
+    document.getElementById('email-btn').href = mailtoLink;
+    document.getElementById('email-btn-wrap').style.display = 'block';
+
+    // Scroll to results
+    setTimeout(function() {
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+</script>
+</body>
+</html>
